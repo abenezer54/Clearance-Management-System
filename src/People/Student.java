@@ -6,6 +6,13 @@ public class Student extends Person{
         super(firstName, middleName, lastName, age, birthOfDate);
         this.studentId = studentId;
     }
+    Student(){
+        super();
+        this.studentId = "UNKNOWN";
+    }
+    public void requestClearance(){
+
+    }
     public static void main(String[] args) {
         Student st = new Student("Abenezer", "Mulugeta", "Asres", 20, "10/29/2002","ets0056");
         System.out.println(st.getFirstName());
