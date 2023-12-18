@@ -19,12 +19,12 @@ public class DataRetriever {
 
                 while (resultSet.next()) {
                     String id = resultSet.getString("student_id");
-                    String fname = resultSet.getString("first_name");
-                    String mname = resultSet.getString("middle_name");
-                    String lname = resultSet.getString("last_name");
+                    String firstName = resultSet.getString("first_name");
+                    String middleName = resultSet.getString("middle_name");
+                    String lastName = resultSet.getString("last_name");
 
                     // Process retrieved data as needed
-                    System.out.println("ID: " + id + ", Name: " + fname + mname + lname);
+                    System.out.println("ID: " + id + ", Name: " + firstName + middleName + lastName);
                 }
             }
         } catch (SQLException e) {
