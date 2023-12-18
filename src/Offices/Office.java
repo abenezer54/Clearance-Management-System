@@ -33,7 +33,6 @@ public class Office {
     public byte getOfficeId() {
         return officeId;
     }
-
     public void setOfficeId(byte officeId) {
         this.officeId = officeId;
     }
