@@ -6,7 +6,8 @@ import EmailConfiguration.*;
 import EmailSending.*;
 
 public class Main {
-    public static List <String> studentRequest = new ArrayList<>();
+    public static List<String> studentRequest = new ArrayList<>();
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
@@ -94,6 +95,12 @@ public class Main {
         scanner.close();
     }
 
+
+        private static boolean isBoolean(String input) {
+            return input.equalsIgnoreCase("true") || input.equalsIgnoreCase("false");
+        }
+
+
     private static boolean inputCheck(String choice) {
         try {
             int num = Integer.parseInt(choice);
@@ -115,18 +122,20 @@ public class Main {
             System.out.println("3. Exit");
             System.out.print("Enter your choice: ");
             String choice = scanner.nextLine();
-            scanner.nextLine(); // Consume the newline character
 
             switch (choice) {
                 case "1":
-                    System.out.println("Enter your name or id ");
+                    System.out.println("Enter your name or id:");
+
                     name = scanner.nextLine();
+//                    scanner.nextLine(); // Consume the newline character
                     clearanceStatus(name, studentManagementSystem);
                     break;
 
                 case "2":
                     System.out.println("Enter your name or id ");
                     name = scanner.nextLine();
+//                    scanner.nextLine(); // Consume the newline character
                     requestClearance(name, studentManagementSystem);
                     break;
                 case "3":
@@ -149,7 +158,6 @@ public class Main {
         String subject = "Clearance Request";
         String body = name + " is requesting a clearance from the" + staff + " could you clear this student.";
         EmailSending.emailsend(recipient, subject, body);
-        System.out.println("Email to the library is sent ");
 
 //        department head
         String staff2 = "Department Head ";
@@ -192,7 +200,6 @@ public class Main {
         EmailSending.emailsend(recipient8, subject, body8);
 
 
-
         List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
 
 
@@ -202,7 +209,8 @@ public class Main {
             }
         }
     }
-     public static void clearanceStatus(String name, StudentManagementSystem studentManagementSystem) {
+
+    public static void clearanceStatus(String name, StudentManagementSystem studentManagementSystem) {
         List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
         List<String> notClearedOffices = new ArrayList<>();
 
@@ -285,6 +293,7 @@ public class Main {
 
         System.out.println("Initiating registrar functionality...");
 //        Scanner scanner = new Scanner(System.in);
+
 
         boolean exit = false;
         while (!exit) {
@@ -411,47 +420,63 @@ public class Main {
     private static void initiateDepartmentHead(Scanner scanner, StudentManagementSystem studentManagementSystem) {
         System.out.println("Initiating department head functionality...");
 
-
         List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
         if (studentList.isEmpty()) {
             System.out.println("No students found.");
         } else {
-            System.out.print("Enter the name or ID of the student: ");
-            String input = scanner.nextLine();
-            for (StudentManagementSystem.Student student : studentList) {
-                if (student.getId().equals(input) || student.getName().equals(input)) {
-                    System.out.print("Set department head status for " + student.getName() + " (true/false): ");
-                    boolean departmentHeadStatus = scanner.nextBoolean();
-                    scanner.nextLine();
-                    student.setDepartmentHead(departmentHeadStatus);
-                    return;
-                }
+            for (String id_ : studentRequest) {
+                System.out.println("These are the id of students that requested a clearance.");
+                System.out.println(id_);
             }
-            System.out.println("Student not found.");
+
+            if (studentList.isEmpty()) {
+                System.out.println("No students found.");
+            } else {
+                System.out.print("Enter the name or ID of the student: ");
+                String input = scanner.nextLine();
+                for (StudentManagementSystem.Student student : studentList) {
+                    if (student.getId().equals(input) || student.getName().equals(input)) {
+                        System.out.print("Set department head status for " + student.getName() + " (true/false): ");
+                        boolean departmentHeadStatus = scanner.nextBoolean();
+                        scanner.nextLine();
+                        student.setDepartmentHead(departmentHeadStatus);
+                        return;
+                    }
+                }
+                System.out.println("Student not found.");
+            }
         }
     }
 
-// Implement similar methods for other offices
 
     private static void initiateStudentsAffair(Scanner scanner, StudentManagementSystem studentManagementSystem) {
         System.out.println("Initiating students affair staff functionality...");
-
         List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
         if (studentList.isEmpty()) {
             System.out.println("No students found.");
         } else {
-            System.out.print("Enter the name or ID of the student: ");
-            String input = scanner.nextLine();
-            for (StudentManagementSystem.Student student : studentList) {
-                if (student.getId().equals(input) || student.getName().equals(input)) {
-                    System.out.print("Set students affair staff status for " + student.getName() + " (true/false): ");
-                    boolean studentsAffairStatus = scanner.nextBoolean();
-                    scanner.nextLine();
-                    student.setStudentsAffair(studentsAffairStatus);
-                    return;
-                }
+            for (String id_ : studentRequest) {
+                System.out.println("These are the id of students that requested a clearance.");
+                System.out.println(id_);
             }
-            System.out.println("Student not found.");
+
+
+            if (studentList.isEmpty()) {
+                System.out.println("No students found.");
+            } else {
+                System.out.print("Enter the name or ID of the student: ");
+                String input = scanner.nextLine();
+                for (StudentManagementSystem.Student student : studentList) {
+                    if (student.getId().equals(input) || student.getName().equals(input)) {
+                        System.out.print("Set students affair staff status for " + student.getName() + " (true/false): ");
+                        boolean studentsAffairStatus = scanner.nextBoolean();
+                        scanner.nextLine();
+                        student.setStudentsAffair(studentsAffairStatus);
+                        return;
+                    }
+                }
+                System.out.println("Student not found.");
+            }
         }
     }
 
@@ -459,23 +484,30 @@ public class Main {
 
     private static void initiateSportsAndClubs(Scanner scanner, StudentManagementSystem studentManagementSystem) {
         System.out.println("Initiating sports and clubs staff functionality...");
-
         List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
         if (studentList.isEmpty()) {
             System.out.println("No students found.");
         } else {
-            System.out.print("Enter the name or ID of the student: ");
-            String input = scanner.nextLine();
-            for (StudentManagementSystem.Student student : studentList) {
-                if (student.getId().equals(input) || student.getName().equals(input)) {
-                    System.out.print("Set sports and clubs staff status for " + student.getName() + " (true/false): ");
-                    boolean sportsAndClubsStatus = scanner.nextBoolean();
-                    scanner.nextLine();
-                    student.setSportsAndClubs(sportsAndClubsStatus);
-                    return;
-                }
+            for (String id_ : studentRequest) {
+                System.out.println("These are the id of students that requested a clearance.");
+                System.out.println(id_);
             }
-            System.out.println("Student not found.");
+            if (studentList.isEmpty()) {
+                System.out.println("No students found.");
+            } else {
+                System.out.print("Enter the name or ID of the student: ");
+                String input = scanner.nextLine();
+                for (StudentManagementSystem.Student student : studentList) {
+                    if (student.getId().equals(input) || student.getName().equals(input)) {
+                        System.out.print("Set sports and clubs staff status for " + student.getName() + " (true/false): ");
+                        boolean sportsAndClubsStatus = scanner.nextBoolean();
+                        scanner.nextLine();
+                        student.setSportsAndClubs(sportsAndClubsStatus);
+                        return;
+                    }
+                }
+                System.out.println("Student not found.");
+            }
         }
     }
 
@@ -483,70 +515,90 @@ public class Main {
 
     private static void initiateCollegeAdmin(Scanner scanner, StudentManagementSystem studentManagementSystem) {
         System.out.println("Initiating college admin functionality...");
-
         List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
         if (studentList.isEmpty()) {
             System.out.println("No students found.");
         } else {
-            System.out.print("Enter the name or ID of the student: ");
-            String input = scanner.nextLine();
-            for (StudentManagementSystem.Student student : studentList) {
-                if (student.getId().equals(input) || student.getName().equals(input)) {
-                    System.out.print("Set college admin status for " + student.getName() + " (true/false): ");
-                    boolean collegeAdminStatus = scanner.nextBoolean();
-                    scanner.nextLine();
-                    student.setCollegeAdmin(collegeAdminStatus);
-                    return;
-                }
+            for (String id_ : studentRequest) {
+                System.out.println("These are the id of students that requested a clearance.");
+                System.out.println(id_);
             }
-            System.out.println("Student not found.");
+            if (studentList.isEmpty()) {
+                System.out.println("No students found.");
+            } else {
+                System.out.print("Enter the name or ID of the student: ");
+                String input = scanner.nextLine();
+                for (StudentManagementSystem.Student student : studentList) {
+                    if (student.getId().equals(input) || student.getName().equals(input)) {
+                        System.out.print("Set college admin status for " + student.getName() + " (true/false): ");
+                        boolean collegeAdminStatus = scanner.nextBoolean();
+                        scanner.nextLine();
+                        student.setCollegeAdmin(collegeAdminStatus);
+                        return;
+                    }
+                }
+                System.out.println("Student not found.");
+            }
         }
     }
 
-// Implement similar methods for other offices
-
     private static void initiateDining(Scanner scanner, StudentManagementSystem studentManagementSystem) {
         System.out.println("Initiating dining office staff functionality...");
-
         List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
         if (studentList.isEmpty()) {
             System.out.println("No students found.");
         } else {
-            System.out.print("Enter the name or ID of the student: ");
-            String input = scanner.nextLine();
-            for (StudentManagementSystem.Student student : studentList) {
-                if (student.getId().equals(input) || student.getName().equals(input)) {
-                    System.out.print("Set dining office staff status for " + student.getName() + " (true/false): ");
-                    boolean diningStatus = scanner.nextBoolean();
-                    scanner.nextLine();
-                    student.setDining(diningStatus);
-                    return;
-                }
+            for (String id_ : studentRequest) {
+                System.out.println("These are the id of students that requested a clearance.");
+                System.out.println(id_);
             }
-            System.out.println("Student not found.");
+            if (studentList.isEmpty()) {
+                System.out.println("No students found.");
+            } else {
+                System.out.print("Enter the name or ID of the student: ");
+                String input = scanner.nextLine();
+                for (StudentManagementSystem.Student student : studentList) {
+                    if (student.getId().equals(input) || student.getName().equals(input)) {
+                        System.out.print("Set dining office staff status for " + student.getName() + " (true/false): ");
+                        boolean diningStatus = scanner.nextBoolean();
+                        scanner.nextLine();
+                        student.setDining(diningStatus);
+                        return;
+                    }
+                }
+                System.out.println("Student not found.");
+            }
         }
     }
 
     private static void initiateDormitory(Scanner scanner, StudentManagementSystem studentManagementSystem) {
         System.out.println("Initiating dormitory proctor functionality...");
-
         List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
         if (studentList.isEmpty()) {
             System.out.println("No students found.");
         } else {
-            System.out.print("Enter the name or ID of the student: ");
-            String input = scanner.nextLine();
-            for (StudentManagementSystem.Student student : studentList) {
-                if (student.getId().equals(input) || student.getName().equals(input)) {
-                    System.out.print("Set dormitory proctor status for " + student.getName() + " (true/false): ");
-                    boolean dormitoryProctorStatus = scanner.nextBoolean();
-                    scanner.nextLine();
-                    student.setDormitory(dormitoryProctorStatus);
-                    return;
-                }
+            for (String id_ : studentRequest) {
+                System.out.println("These are the id of students that requested a clearance.");
+                System.out.println(id_);
             }
-            System.out.println("Student not found.");
+            if (studentList.isEmpty()) {
+                System.out.println("No students found.");
+            } else {
+                System.out.print("Enter the name or ID of the student: ");
+                String input = scanner.nextLine();
+                for (StudentManagementSystem.Student student : studentList) {
+                    if (student.getId().equals(input) || student.getName().equals(input)) {
+                        System.out.print("Set dormitory proctor status for " + student.getName() + " (true/false): ");
+                        boolean dormitoryProctorStatus = scanner.nextBoolean();
+                        scanner.nextLine();
+                        student.setDormitory(dormitoryProctorStatus);
+                        return;
+                    }
+                }
+                System.out.println("Student not found.");
+            }
         }
     }
 }
+
 
