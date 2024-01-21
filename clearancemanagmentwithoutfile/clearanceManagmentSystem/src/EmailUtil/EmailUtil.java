@@ -1,7 +1,9 @@
+package EmailUtil;
 import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import javax.mail.internet.*;
+//import javax.activation.*;
 import EmailConfiguration.*;
+import java.util.Properties;
 
 public class EmailUtil {
     public static void sendEmail(String recipient, String subject, String body, String username, String password) {
@@ -20,7 +22,7 @@ public class EmailUtil {
             message.setSubject(subject);
             message.setText(body);
             Transport.send(message);
-            System.out.println("Email sent successfully!");
+            System.out.println("Email sent to " + recipient + " successfully!");
         } catch (MessagingException e) {
             System.out.println("Failed to send email: " + e.getMessage());
         }

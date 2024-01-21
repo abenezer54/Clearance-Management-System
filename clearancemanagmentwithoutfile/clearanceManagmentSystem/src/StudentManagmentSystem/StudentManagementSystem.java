@@ -30,13 +30,13 @@ public class StudentManagementSystem {
         private String id;
         private String year;
         private String name;
-        private boolean library = true;
-        private boolean departmentHead = true;
-        private boolean studentsAffair= true;
-        private boolean sportsAndClubs = true;
-        private boolean collegeAdmin= true;
-        private boolean dining= true;
-        private boolean dormitory = true;
+        private boolean library = false;
+        private boolean departmentHead = false;
+        private boolean studentsAffair= false;
+        private boolean sportsAndClubs = false;
+        private boolean collegeAdmin= false;
+        private boolean dining= false;
+        private boolean dormitory = false;
 
         private Map<Integer, Boolean> officeClearance;
 

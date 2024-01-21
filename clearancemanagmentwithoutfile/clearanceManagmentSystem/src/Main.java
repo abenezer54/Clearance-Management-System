@@ -3,7 +3,10 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import EmailConfiguration.*;
+import EmailSending.*;
+
 public class Main {
+    public static List <String> studentRequest = new ArrayList<>();
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
@@ -107,8 +110,9 @@ public class Main {
         String name;
         while (requestingClearance) {
             System.out.println("\n----- Student Menu -----");
-            System.out.println("1. Request Clearance");
-            System.out.println("2. Exit");
+            System.out.println("1. Clearance Status");
+            System.out.println("2. Request Clearance");
+            System.out.println("3. Exit");
             System.out.print("Enter your choice: ");
             String choice = scanner.nextLine();
             scanner.nextLine(); // Consume the newline character
@@ -117,9 +121,15 @@ public class Main {
                 case "1":
                     System.out.println("Enter your name or id ");
                     name = scanner.nextLine();
+                    clearanceStatus(name, studentManagementSystem);
+                    break;
+
+                case "2":
+                    System.out.println("Enter your name or id ");
+                    name = scanner.nextLine();
                     requestClearance(name, studentManagementSystem);
                     break;
-                case "2":
+                case "3":
                     requestingClearance = false;
                     break;
                 default:
@@ -131,6 +141,68 @@ public class Main {
     }
 
     public static void requestClearance(String name, StudentManagementSystem studentManagementSystem) {
+//        Library
+        System.out.println("Sending email request .... ");
+
+        String staff = "library";
+        String recipient = "Libraryaastu@gmail.com";
+        String subject = "Clearance Request";
+        String body = name + " is requesting a clearance from the" + staff + " could you clear this student.";
+        EmailSending.emailsend(recipient, subject, body);
+        System.out.println("Email to the library is sent ");
+
+//        department head
+        String staff2 = "Department Head ";
+        String recipient2 = "aastudepartmenthead@gmail.com";
+        String body2 = name + " is requesting a clearance from the" + staff2 + " could you clear this student.";
+        EmailSending.emailsend(recipient2, subject, body2);
+
+//        Students affairs
+        String staff4 = "Students affairs  ";
+        String recipient4 = "bigidovi@gmail.com";
+        String body4 = name + " is requesting a clearance from the" + staff4 + " could you clear this student.";
+        EmailSending.emailsend(recipient4, subject, body4);
+
+
+//        Sports and Clubs
+        String staff5 = "Sports and Clubs  ";
+        String recipient5 = "sportsandclubsaastu@gmail.com";
+        String body5 = name + " is requesting a clearance from the" + staff5 + " could you clear this student.";
+        EmailSending.emailsend(recipient5, subject, body5);
+
+
+//        College Admin
+        String staff6 = "College Admin";
+        String recipient6 = "bigidovi@gmail.com";
+        String body6 = name + " is requesting a clearance from the" + staff6 + " could you clear this student.";
+        EmailSending.emailsend(recipient6, subject, body6);
+
+
+//        Dinning Office
+        String staff7 = "Dinning Office";
+        String recipient7 = "aastudiningoffice@gmail.com";
+        String body7 = name + " is requesting a clearance from the" + staff7 + " could you clear this student.";
+        EmailSending.emailsend(recipient7, subject, body7);
+
+
+//        Dormitory
+        String staff8 = "Dormitory";
+        String recipient8 = "bigidovi@gmail.com";
+        String body8 = name + " is requesting a clearance from the" + staff8 + " could you clear this student.";
+        EmailSending.emailsend(recipient8, subject, body8);
+
+
+
+        List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
+
+
+        for (StudentManagementSystem.Student student : studentList) {
+            if (student.getName().equals(name) || student.getId().equals(name)) {
+                studentRequest.add(student.getId());
+            }
+        }
+    }
+     public static void clearanceStatus(String name, StudentManagementSystem studentManagementSystem) {
         List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
         List<String> notClearedOffices = new ArrayList<>();
 
@@ -164,7 +236,7 @@ public class Main {
         if (notClearedOffices.isEmpty()) {
             System.out.println("Congratulations! You have clearance for all offices.");
         } else {
-            System.out.println("Clearance Status:");
+            System.out.println("Clearance Status: Not Cleared");
             System.out.println("List of offices where you are not Cleared");
             for (String office : notClearedOffices) {
                 System.out.println(office);
@@ -190,6 +262,10 @@ public class Main {
         if (studentList.isEmpty()) {
             System.out.println("No students found.");
         } else {
+            for (String id_ : studentRequest) {
+                System.out.println("These are the id of students that requested a clearance.");
+                System.out.println(id_);
+            }
             System.out.print("Enter the name or ID of the student: ");
             String input = scanner.nextLine();
             for (StudentManagementSystem.Student student : studentList) {
@@ -334,6 +410,7 @@ public class Main {
 
     private static void initiateDepartmentHead(Scanner scanner, StudentManagementSystem studentManagementSystem) {
         System.out.println("Initiating department head functionality...");
+
 
         List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
         if (studentList.isEmpty()) {
