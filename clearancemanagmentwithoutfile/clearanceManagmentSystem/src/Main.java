@@ -2,7 +2,7 @@ import StudentManagmentSystem.*;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
-
+import EmailConfiguration.*;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -29,13 +29,13 @@ public class Main {
             System.out.println("| 1. A Student                      |");
             System.out.println("| 2. A Librarian                    |");
             System.out.println("| 3. A Registrar                    |");
-            System.out.println("| 4. A department_head              |");
-            System.out.println("| 5. A students_affair staff        |");
-            System.out.println("| 6. A sports_and_clubs staff       |");
-            System.out.println("| 7. A college_admin                |");
+            System.out.println("| 4. A department head              |");
+            System.out.println("| 5. A students affair staff        |");
+            System.out.println("| 6. A sports and clubs staff       |");
+            System.out.println("| 7. A college admin                |");
             System.out.println("| 8. A dining office staff          |");
             System.out.println("| 9. A dormitory proctor            |");
-            System.out.println("| 10. To exit program               |");
+            System.out.println("| 10.To exit program               |");
             System.out.println("|___________________________________|");
             System.out.print("Enter your choice: ");
 //            if (scanner.hasNextLine()) {
