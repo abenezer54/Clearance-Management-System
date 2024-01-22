@@ -92,7 +92,7 @@ public class Main {
 //        }
 
         System.out.println("Exiting the program...");
-        scanner.close();
+//        scanner.close();
     }
 
 
@@ -256,7 +256,7 @@ public class Main {
 //        StudentManagementSystem studentManagementSystem = new StudentManagementSystem();
         List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
         for (StudentManagementSystem.Student student : studentList) {
-            if (student.getId() == studentId) {
+            if (student.getId().equals(studentId)) {
                 return (Student) student;
             }
         }
@@ -279,9 +279,16 @@ public class Main {
             for (StudentManagementSystem.Student student : studentList) {
                 if (student.getId().equals(input) || student.getName().equals(input)) {
                     System.out.print("Set library status for " + student.getName() + " (true/false): ");
-                    boolean libraryStatus = scanner.nextBoolean();
-                    scanner.nextLine();
-                    student.setLibrary(libraryStatus);
+                    String libraryStatus = scanner.nextLine();
+//                    boolean libraryStatus = scanner.nextBoolean();
+                    if (isBoolean(libraryStatus)){
+                        student.setLibrary(Boolean.parseBoolean(libraryStatus));
+                    }
+                    else{
+                        System.out.println("Invalid input");
+                        return;
+                    }
+
                     return;
                 }
             }
@@ -374,7 +381,7 @@ public class Main {
         studentManagementSystem.removeStudent(studentId);
 
         System.out.println("Student deleted successfully.");
-        scanner.close();
+//        scanner.close();
     }
 
     private static void editStudentDetails(Scanner scanner, StudentManagementSystem studentManagementSystem) {
@@ -413,7 +420,7 @@ public class Main {
             default:
                 System.out.println("Invalid choice. Please try again.");
         }
-        scanner.close();
+//        scanner.close();
     }
 
 
@@ -437,9 +444,16 @@ public class Main {
                 for (StudentManagementSystem.Student student : studentList) {
                     if (student.getId().equals(input) || student.getName().equals(input)) {
                         System.out.print("Set department head status for " + student.getName() + " (true/false): ");
-                        boolean departmentHeadStatus = scanner.nextBoolean();
-                        scanner.nextLine();
-                        student.setDepartmentHead(departmentHeadStatus);
+//                        boolean departmentHeadStatus = scanner.nextBoolean();
+                       String departmentHeadStatus = scanner.nextLine();
+                        if (isBoolean(departmentHeadStatus)){
+                            student.setLibrary(Boolean.parseBoolean(departmentHeadStatus));
+                        }
+                        else{
+                            System.out.println("Invalid input");
+                            return;
+                        }
+
                         return;
                     }
                 }
@@ -469,9 +483,16 @@ public class Main {
                 for (StudentManagementSystem.Student student : studentList) {
                     if (student.getId().equals(input) || student.getName().equals(input)) {
                         System.out.print("Set students affair staff status for " + student.getName() + " (true/false): ");
-                        boolean studentsAffairStatus = scanner.nextBoolean();
-                        scanner.nextLine();
-                        student.setStudentsAffair(studentsAffairStatus);
+//                        boolean studentsAffairStatus = scanner.nextBoolean();
+                        String studentsAffairStatus = scanner.nextLine();
+                        if (isBoolean(studentsAffairStatus)){
+                            student.setLibrary(Boolean.parseBoolean(studentsAffairStatus));
+                        }
+                        else{
+                            System.out.println("Invalid input");
+                            return;
+                        }
+
                         return;
                     }
                 }
@@ -500,9 +521,16 @@ public class Main {
                 for (StudentManagementSystem.Student student : studentList) {
                     if (student.getId().equals(input) || student.getName().equals(input)) {
                         System.out.print("Set sports and clubs staff status for " + student.getName() + " (true/false): ");
-                        boolean sportsAndClubsStatus = scanner.nextBoolean();
-                        scanner.nextLine();
-                        student.setSportsAndClubs(sportsAndClubsStatus);
+//                        boolean sportsAndClubsStatus = scanner.nextBoolean();
+
+                        String sportsAndClubsStatus = scanner.nextLine();
+                        if (isBoolean(sportsAndClubsStatus)) {
+                            student.setLibrary(Boolean.parseBoolean(sportsAndClubsStatus));
+                        } else {
+                            System.out.println("Invalid input");
+                            return;
+                        }
+
                         return;
                     }
                 }
@@ -531,11 +559,18 @@ public class Main {
                 for (StudentManagementSystem.Student student : studentList) {
                     if (student.getId().equals(input) || student.getName().equals(input)) {
                         System.out.print("Set college admin status for " + student.getName() + " (true/false): ");
-                        boolean collegeAdminStatus = scanner.nextBoolean();
-                        scanner.nextLine();
-                        student.setCollegeAdmin(collegeAdminStatus);
+//                      boolean collegeAdminStatus = scanner.nextBoolean();
+                        String collegeAdminStatus = scanner.nextLine();
+                        if (isBoolean(collegeAdminStatus)) {
+                            student.setLibrary(Boolean.parseBoolean(collegeAdminStatus));
+                        } else {
+                            System.out.println("Invalid input");
+                            return;
+                        }
+
                         return;
                     }
+
                 }
                 System.out.println("Student not found.");
             }
@@ -560,9 +595,16 @@ public class Main {
                 for (StudentManagementSystem.Student student : studentList) {
                     if (student.getId().equals(input) || student.getName().equals(input)) {
                         System.out.print("Set dining office staff status for " + student.getName() + " (true/false): ");
-                        boolean diningStatus = scanner.nextBoolean();
-                        scanner.nextLine();
-                        student.setDining(diningStatus);
+//                        boolean diningStatus = scanner.nextBoolean();
+
+                        String diningStatus = scanner.nextLine();
+                        if (isBoolean(diningStatus)) {
+                            student.setLibrary(Boolean.parseBoolean(diningStatus));
+                        } else {
+                            System.out.println("Invalid input");
+                            return;
+                        }
+
                         return;
                     }
                 }
@@ -589,9 +631,15 @@ public class Main {
                 for (StudentManagementSystem.Student student : studentList) {
                     if (student.getId().equals(input) || student.getName().equals(input)) {
                         System.out.print("Set dormitory proctor status for " + student.getName() + " (true/false): ");
-                        boolean dormitoryProctorStatus = scanner.nextBoolean();
-                        scanner.nextLine();
-                        student.setDormitory(dormitoryProctorStatus);
+//                        boolean dormitoryProctorStatus = scanner.nextBoolean();
+                        String dormitoryProctorStatus = scanner.nextLine();
+                        if (isBoolean(dormitoryProctorStatus)) {
+                            student.setLibrary(Boolean.parseBoolean(dormitoryProctorStatus));
+                        } else {
+                            System.out.println("Invalid input");
+                            return;
+                        }
+
                         return;
                     }
                 }
