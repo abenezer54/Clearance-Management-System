@@ -20,7 +20,7 @@ This initiative targets the creation of a **centralized** and **user-friendly pl
 
 ### Dependencies
 
-- inorder for the mail integration to work you should download javax.mail and add it to the dependencies in your code editors.
+- inorder for the mail integration to work you should add javax.mail  to the dependencies in your code editors.
 
 ## Contribution and Feedback
 
