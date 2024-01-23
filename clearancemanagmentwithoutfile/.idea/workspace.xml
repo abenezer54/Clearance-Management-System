@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3483b9af-1182-4019-8ddc-6d2387b2c37a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../Clearance-Managment-system-with-Database/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../Clearance-Managment-system-with-Database/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Clearance-Managment-system-with-Database/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Clearance-Managment-system-with-Database/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Clearance-Managment-system-with-Database/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Clearance-Managment-system-with-Database/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Clearance-Managment-system-with-Database/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clearanceManagmentSystem/clearanceManagmentSystemWithoutFile.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Clearance-Managment-system-with-Database/src/clearanceManagmentSystemWithoutFile.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clearanceManagmentSystem/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/clearanceManagmentSystem/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Clearance-Managment-system-with-Database/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/Offices/Office.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Clearance-Managment-system-with-Database/src/Offices/Office.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/People/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Clearance-Managment-system-with-Database/src/People/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/People/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Clearance-Managment-system-with-Database/src/People/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clearanceManagmentSystem/src/StudentManagmentSystem/StudentManagementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/clearanceManagmentSystem/src/StudentManagmentSystem/StudentManagementSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clearancemanagmentwithoutfile.iml" beforeDir="false" afterPath="$PROJECT_DIR$/clearancemanagmentwithoutfile.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +20,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2aflcSKONt7YBLkvZxiBPtSxM6w" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -37,7 +33,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "development",
-    "last_opened_file_path": "D:/Clearance-Management-System/clearancemanagmentwithoutfile"
+    "last_opened_file_path": "C:/Users/USER/Downloads/jar_files/activation-1.1.1.jar",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

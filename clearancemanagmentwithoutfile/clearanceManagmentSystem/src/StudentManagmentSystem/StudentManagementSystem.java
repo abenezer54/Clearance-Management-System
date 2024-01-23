@@ -15,7 +15,7 @@ public class StudentManagementSystem {
 
     public void removeStudent(String studentId) {
         for (Student student : students) {
-            if (student.getId() == studentId) {
+            if (student.getId().equals(studentId)) {
                 students.remove(student);
                 break;
             }
