@@ -150,7 +150,22 @@ public class Main {
     }
 
     public static void requestClearance(String name, StudentManagementSystem studentManagementSystem) {
-//        Library
+        List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
+        boolean studentExists = false;
+        for (StudentManagementSystem.Student student : studentList) {
+            if (student.getName().equals(name) || student.getId().equals(name)) {
+                studentRequest.add(student.getId());
+                studentExists = true;
+            }
+        }
+
+        if (!studentExists) {
+            System.out.println("Student doesn't exist");
+            return;
+        }
+
+
+        //        Library
         System.out.println("Sending email request .... ");
 
         String staff = "library";
@@ -198,25 +213,16 @@ public class Main {
         String recipient8 = "bigidovi@gmail.com";
         String body8 = name + " is requesting a clearance from the" + staff8 + " could you clear this student.";
         EmailSending.emailsend(recipient8, subject, body8);
-
-
-        List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
-
-
-        for (StudentManagementSystem.Student student : studentList) {
-            if (student.getName().equals(name) || student.getId().equals(name)) {
-                studentRequest.add(student.getId());
-            }
-        }
     }
+
 
     public static void clearanceStatus(String name, StudentManagementSystem studentManagementSystem) {
         List<StudentManagementSystem.Student> studentList = studentManagementSystem.getAllStudents();
         List<String> notClearedOffices = new ArrayList<>();
-
+        boolean studentFound = false;
         for (StudentManagementSystem.Student student : studentList) {
             if (student.getName().equals(name) || student.getId().equals(name)) {
-
+                studentFound = true;
                 if (!student.isLibrary()) {
                     notClearedOffices.add("Library");
                 }
@@ -240,8 +246,11 @@ public class Main {
                 }
             }
         }
+        if(!studentFound){
+            System.out.println("Student is not in the list");
+        }
 
-        if (notClearedOffices.isEmpty()) {
+        else if (notClearedOffices.isEmpty()) {
             System.out.println("Congratulations! You have clearance for all offices.");
         } else {
             System.out.println("Clearance Status: Not Cleared");
